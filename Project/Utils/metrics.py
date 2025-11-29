@@ -14,7 +14,7 @@ def latitude_weighting_function(latitude_coordinates):
     return latitude_weights.cpu()
 
 
-def loss_function(prediction, target, latitude_weights):                            # LW_MSE
+def loss_function(prediction, target, latitude_weights):
     error = latitude_weights * torch.square(prediction - target)
     result = torch.mean(torch.mean(error, dim=[0, 2, 3]), dim=0)
     return result
@@ -22,9 +22,9 @@ def loss_function(prediction, target, latitude_weights):                        
 
 def LW_RMSE(prediction, target, latitude_weights):
     diff = [x - y for x, y in zip(prediction, target)]
-    error = latitude_weights * np.square(diff)#.mean(0)      # (1, 1, 3, 12) * (128, 3, 32, 64) -> N, 128, 3, 32, 64
-    channel_rmse = error.mean([3, 4]).sqrt().mean(1)        # 2, 3
-    result = channel_rmse.mean(0)       # 3
+    error = latitude_weights * np.square(diff)
+    channel_rmse = error.mean([3, 4]).sqrt().mean(1)
+    result = channel_rmse.mean(0)
     return result.cpu().numpy()
 
 
