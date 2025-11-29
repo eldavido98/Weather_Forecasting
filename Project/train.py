@@ -2,9 +2,9 @@ from forecasting import *
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-res_params = [32, 4]     # [128, 28]
-u_params = [16, 1]       # [64, 2]
-vit_params = [2, 2, 1, 32]     # [8, 4, 2, 128]
+res_params = [128, 28]
+u_params = [64, 2]
+vit_params = [8, 4, 2, 128]
 
 constants_set = define_sets('const')
 train_set = define_sets('train')
