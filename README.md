@@ -1,5 +1,6 @@
-# NN_Project
+# Weather Forecasting
 For this project I was inspired by the paper [ClimateLearn - Benchmarking Machine Learning for Weather and Climate Modeling](https://arxiv.org/pdf/2307.01909.pdf#:~:text=ClimateLearn%20supports%20data%20pre%2D%20processing,weather%20forecasting%2C%20downscaling%2C%20and%20climate). I reimplemented the models used for forecasting; as networks, I have implemented: ResNet, UNet and ViT. After training, I used Root Mean Square Error (RMSE) and Anomaly Correlation Coefficient (ACC) to evaluate the performances of the trained networks.
+
 
 ## Usage
 Running the code is very simple: for the colab notebook you have to run all the cells in sequence, while for the files here on github you have to download the 'Project' folder and run the file 'train.py' if you want to train the model or 'evaluate.py' if you want to evaluate it. I have also added a trained model called 'model.pt' so that you can test the 'evaluate.py' function.
@@ -18,13 +19,16 @@ Since it is not possible to upload the data used for the experiment to github, I
 
 If it were decided to train the models using more data than I do, it would be sufficient to make a few changes in the 'utils' file in 'Project/Utils/'. By modifying 'low_bound_year_train', 'max_bound_year_train', 'low_bound_year_val_test' and 'max_bound_year_val_test', it is possible to change the intervals used to define the years used to define the train, validation and test set.
 
-### Installing Packages
-```
-pip install climate-learn
-pip install torch==2.2.0
-pip install numpy==1.26.4
-pip install timm==0.9.16
-pip install netCDF4==1.6.5
-pip install scikit-learn==1.4.2
-pip install matplotlib==3.8.4
-```
+
+## Installing Packages
+- ```pip install climate-learn```
+- ```pip install torch==2.2.0```
+- ```pip install numpy==1.26.4```
+- ```pip install timm==0.9.16```
+- ```pip install netCDF4==1.6.5```
+- ```pip install scikit-learn==1.4.2```
+- ```pip install matplotlib==3.8.4```
+
+
+## License & Credits  
+Feel free to reuse or adapt this code for educational, research or personal purposes.
