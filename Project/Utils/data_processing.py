@@ -10,11 +10,11 @@ class PreProcessing:
     def __init__(self):
         self.scaler = sklearn.preprocessing.StandardScaler()
 
-    def process(self, dataset):                                            # dataset has shape (batch_size, 141, 32, 64)
+    def process(self, dataset):
         processed_data = []
-        for i in range(len(dataset)):                                      # len(dataset) == batch_size
+        for i in range(len(dataset)):
             processed_batch = []
-            for j in range(len(dataset[i])):                               # len(dataset[i]) == 141
+            for j in range(len(dataset[i])):
                 processed_batch.append(self.scaler.fit_transform(X=dataset[i][j]))
             processed_data.append(np.array(processed_batch, dtype=np.float32))
         processed_dataset = torch.FloatTensor(np.array(processed_data, dtype=np.float32)).to(device)
